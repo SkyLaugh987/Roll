@@ -75,7 +75,12 @@ public class GameManager : MonoBehaviour
     }
     #endregion;
 
-    
+    public void Respawn()
+    {
+        //récupérer la boule
+        //revenir au dernier endroit passé
+        //
+    }
 
 
 }
