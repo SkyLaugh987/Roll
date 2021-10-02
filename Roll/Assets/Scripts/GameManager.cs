@@ -4,14 +4,77 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    #region Instances;
+
+    private static GameManager instance;
+    public static GameManager Instance
     {
-        
+        get
+        {
+            if (instance == null)
+                Debug.LogError("GameManager Instance not found.");
+
+            return instance;
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    #endregion
+
+    private void OnEnable()
+    {
+        instance = this;
+    }
+
+    #region GameStates;
+    public enum GameStates
+    {
+        MainMenu,
+        InGame,
+        Pause,
+        GameOver,
+        Win,
+    }
+    private GameStates currentGameState;
+    public GameStates GameState
+    {
+        get => currentGameState;
+        set
+        {
+            currentGameState = value;
+            switch (currentGameState)
+            {
+                case GameStates.MainMenu:
+                    Time.timeScale = 1;
+
+                    break;
+
+                case GameStates.InGame:
+                    Time.timeScale = 1;
+
+                    break;
+
+                case GameStates.Pause:
+                    Time.timeScale = 0;
+                    break;
+
+                case GameStates.GameOver:
+                    //Affiche un GameOver quoi
+                    Time.timeScale = 0;
+                    break;
+
+                case GameStates.Win:
+                    Time.timeScale = 1;
+                    break;
+            }
+        }
+    }
+    #endregion;
+
+
+
+    void Awake()
     {
         
     }
