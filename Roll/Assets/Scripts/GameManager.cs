@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    private bool victory;
+    public bool Victory { get => victory; set => victory = value; }
+
     #region Instances;
 
     private static GameManager instance;
@@ -72,10 +75,5 @@ public class GameManager : MonoBehaviour
     }
     #endregion;
 
-
-
-    void Awake()
-    {
-        
-    }
+    
 }
