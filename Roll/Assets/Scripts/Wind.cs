@@ -10,11 +10,18 @@ public class Wind : MonoBehaviour
     [SerializeField]
     Vector3 windDir;
 
+    [SerializeField]
+    ParticleSystem ps;
+
+    private void Start()
+    {
+        //ps.transform.localRotation = windDir;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         Ball ball = other.gameObject.GetComponent<Ball>();
-        if (ball != null)
-        {
+        if (ball != null){
             ball.gameObject.GetComponent<Rigidbody>().AddForce(windDir * windForce / 5, ForceMode.Acceleration);
         }
     }
