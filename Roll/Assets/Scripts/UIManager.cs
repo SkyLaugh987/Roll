@@ -19,4 +19,20 @@ public class UIManager : MonoBehaviour
     {
         _instance = this;
     }
+
+
+
+    public void DisplayPauseMenu()
+    {
+
+    }
+
+    public void Button(string state)
+    {
+        switch (state)
+        {
+
+        }
+    }
+
 }
