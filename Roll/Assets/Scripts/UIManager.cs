@@ -27,4 +27,12 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void Button(string state)
+    {
+        switch (state)
+        {
+
+        }
+    }
+
 }
