@@ -23,12 +23,12 @@ public class Ball : MonoBehaviour
     KeyCode sprintKey = KeyCode.LeftShift;
 
     bool sprint = false;
-    bool airborne = false;
 
     private void Update()
     {
         Vector3 dir = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (airborne){
+        if (isGrounded())
+        {
             rb.AddForce(dir * airborneSpeed,ForceMode.Force);
         }
         else if(sprint){
@@ -38,7 +38,7 @@ public class Ball : MonoBehaviour
             rb.AddForce(dir * speed, ForceMode.Force);
         }
 
-        if (!airborne)
+        if (!isGrounded())
         {
             if (Input.GetKeyDown(jumpKey)){
                 Jump();
@@ -55,12 +55,16 @@ public class Ball : MonoBehaviour
     void Jump()
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        airborne = true;
         sprint = false;
+    }
+
+    bool isGrounded()
+    {
+        return Physics.Raycast(this.gameObject.GetComponent<SphereCollider>().bounds.center, Vector2.down, this.gameObject.GetComponent<SphereCollider>().bounds.extents.y);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        airborne = false;
+        
     }
 }
