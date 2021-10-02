@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingTargets : MonoBehaviour
+public class Targets : MonoBehaviour
 {
     [SerializeField] GameObject[] targets;
     [SerializeField] float speed;
