@@ -31,6 +31,10 @@ public class Ball : MonoBehaviour
 
     bool sprint = false;
 
+    private void Start()
+    {
+        this.gameObject.GetComponent<Renderer>().material = MenuManager.Instance.chooseSkin();
+    }
     private void FixedUpdate()
     {
         if (!isGrounded())
