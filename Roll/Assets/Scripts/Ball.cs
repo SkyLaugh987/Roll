@@ -8,11 +8,11 @@ public class Ball : MonoBehaviour
     Camera cam;
     [SerializeField]
     Rigidbody rb;
-    [SerializeField,Range(20f,75f)]
+    [SerializeField,Range(1f,75f)]
     float speed = 10;
-    [SerializeField, Range(20f, 75f)]
+    [SerializeField, Range(1f, 120f)]
     float jumpForce = 10;
-    [SerializeField, Range(40f, 120f)]
+    [SerializeField, Range(1f, 120f)]
     float sprintSpeed = 14;
     [SerializeField, Range(1f, 75f)]
     float airborneSpeed = 4;
@@ -28,7 +28,7 @@ public class Ball : MonoBehaviour
 
     bool sprint = false;
 
-    private void FixedUpdate()
+    private void Update()
     {
         Vector3 dir = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         if (!isGrounded())
@@ -68,7 +68,7 @@ public class Ball : MonoBehaviour
 
     bool isGrounded()
     {
-        return Physics.Raycast(this.gameObject.GetComponent<SphereCollider>().bounds.center, Vector2.down, this.gameObject.GetComponent<SphereCollider>().bounds.extents.y+0.04f);
+        return Physics.Raycast(this.gameObject.GetComponent<SphereCollider>().bounds.center, Vector2.down, this.gameObject.GetComponent<SphereCollider>().bounds.extents.y+0.05f);
     }
 
     private void OnCollisionEnter(Collision collision)
