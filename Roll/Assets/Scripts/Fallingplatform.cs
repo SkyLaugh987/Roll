@@ -5,15 +5,15 @@ using UnityEngine;
 public class Fallingplatform : MonoBehaviour
 {
 
-    float timer = 5f;
-    float timerReset = 5f;
+    float timer = 3f;
+    float timerReset = 3f;
     bool startTimer = false;
     Rigidbody platRB;
     // Start is called before the first frame update
     void Start()
     {
         platRB = GetComponent<Rigidbody>();
-        Debug.Log(startTimer);
+        //Debug.Log(startTimer);
 
     }
 
@@ -22,7 +22,7 @@ public class Fallingplatform : MonoBehaviour
     {
         if (startTimer == true)
         {
-            Debug.Log(startTimer);
+            //Debug.Log(startTimer);
 
             timer -= Time.deltaTime;
             Debug.Log("timer: " + timer);

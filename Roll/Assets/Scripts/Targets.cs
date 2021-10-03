@@ -18,31 +18,32 @@ public class Targets : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(targets[currIndex].transform.position, transform.position) < 1)
-        {
-           
-            StartCoroutine(Countdown(waitFor));
-            currIndex++;
 
+        if (Vector3.Distance(targets[currIndex].transform.position, transform.position) <= 0)
+        {
+            //transform.position = targets[currIndex].transform.position;
+            //StartCoroutine(Countdown(waitFor));
+            currIndex++;
             if (currIndex >= targets.Length)
                 currIndex = 0;
         }
-
-        Debug.Log("Departure");
+        //Debug.Log("Departure");
         transform.position = Vector3.MoveTowards(transform.position, targets[currIndex].transform.position, speed * Time.deltaTime);
+
     }
 
 
-    IEnumerator Countdown(float seconds)
+    /*IEnumerator Countdown(float seconds)
     {
         Debug.Log("Waiting");
         float counter = seconds;
-        while (counter > 0)
+        /*while (counter > 0)
         {
-            yield return new WaitForSeconds(seconds);
             counter--;
         }
-            transform.position = targets[currIndex].transform.position;
-
-    }
+            currIndex++;
+            if (currIndex >= targets.Length)
+                currIndex = 0;
+            yield return new WaitForSeconds(seconds);
+    }*/
 }
