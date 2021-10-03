@@ -213,6 +213,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &412674181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 543936179, guid: 6e69ebffc093e4d469eaa33a809711df,
+    type: 3}
+  m_PrefabInstance: {fileID: 3223069206492243165}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &412674182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412674181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef66610280b0eee4e8e6df8650e50988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.6
+      value: 0.7
+      inSlope: -1.8
+      outSlope: -1.2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &847545154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 543936182, guid: 6e69ebffc093e4d469eaa33a809711df,
@@ -5299,6 +5350,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Void
       objectReference: {fileID: 0}
+    - target: {fileID: 5307521121136764377, guid: c48b5e939721b0346b66a3a965297bf1,
+        type: 3}
+      propertyPath: Panel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5307521121136764377, guid: c48b5e939721b0346b66a3a965297bf1,
+        type: 3}
+      propertyPath: fade
+      value: 
+      objectReference: {fileID: 412674182}
     - target: {fileID: 5307521121136764379, guid: c48b5e939721b0346b66a3a965297bf1,
         type: 3}
       propertyPath: m_LocalPosition.x
