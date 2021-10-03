@@ -14,7 +14,7 @@ public class Ball : MonoBehaviour
     float jumpForce = 10;
     [SerializeField, Range(40f, 120f)]
     float sprintSpeed = 14;
-    [SerializeField, Range(20f, 75f)]
+    [SerializeField, Range(1f, 75f)]
     float airborneSpeed = 4;
 
     [SerializeField]
