@@ -28,12 +28,13 @@ public class Ball : MonoBehaviour
 
     bool sprint = false;
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector3 dir = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         if (!isGrounded())
         {
             rb.AddForce(dir * airborneSpeed,ForceMode.Force);
+            rb.AddForce(transform.up + Physics.gravity * 10f);
             rb.drag = airDrag;
         }
         else if(sprint){
