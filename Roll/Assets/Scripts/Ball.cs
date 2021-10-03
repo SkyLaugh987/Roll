@@ -8,7 +8,7 @@ public class Ball : MonoBehaviour
     Camera cam;
     [SerializeField]
     Rigidbody rb;
-    [SerializeField,Range(1f,75f)]
+    [SerializeField, Range(1f, 75f)]
     float speed = 10;
     [SerializeField, Range(1f, 120f)]
     float jumpForce = 10;
@@ -16,6 +16,9 @@ public class Ball : MonoBehaviour
     float sprintSpeed = 14;
     [SerializeField, Range(1f, 75f)]
     float airborneSpeed = 4;
+
+    private Vector3 dir;
+    private bool jump = false;
 
     [SerializeField]
     float groundDrag = 2f;
@@ -28,33 +31,57 @@ public class Ball : MonoBehaviour
 
     bool sprint = false;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        Vector3 dir = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         if (!isGrounded())
         {
-            rb.AddForce(dir * airborneSpeed,ForceMode.Force);
+            rb.AddForce(dir * airborneSpeed, ForceMode.Force);
             rb.AddForce(transform.up + Physics.gravity * 10f);
             rb.drag = airDrag;
         }
-        else if(sprint){
+        else if (sprint)
+        {
             rb.AddForce(dir * sprintSpeed, ForceMode.Force);
         }
-        else{
+        else
+        {
             rb.AddForce(dir * speed, ForceMode.Force);
         }
 
         if (isGrounded())
         {
             rb.drag = groundDrag;
+            Jump();
 
-            if (Input.GetKeyDown(jumpKey)){
-                Jump();
+        }
+        
+        
+    }
+
+    private void Update()
+    {
+        ReadingInput();
+    }
+
+    private void ReadingInput()
+    {
+        dir = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        if (isGrounded())
+        {
+
+            if (Input.GetKeyDown(jumpKey))
+            {
+                jump = true;
             }
-            else if(Input.GetKey(sprintKey)){
+
+
+            if (Input.GetKey(sprintKey))
+            {
                 sprint = true;
             }
-            else{
+            else
+            {
                 sprint = false;
             }
         }
@@ -62,17 +89,22 @@ public class Ball : MonoBehaviour
 
     void Jump()
     {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        sprint = false;
+        if (jump)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            sprint = false;
+            jump = false;
+        }
+
     }
 
     bool isGrounded()
     {
-        return Physics.Raycast(this.gameObject.GetComponent<SphereCollider>().bounds.center, Vector2.down, this.gameObject.GetComponent<SphereCollider>().bounds.extents.y+0.05f);
+        return Physics.Raycast(this.gameObject.GetComponent<SphereCollider>().bounds.center, Vector2.down, this.gameObject.GetComponent<SphereCollider>().bounds.extents.y + 0.5f);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+
     }
 }

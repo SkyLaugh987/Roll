@@ -195,7 +195,7 @@ MonoBehaviour:
   cam: {fileID: 1681977629}
   rb: {fileID: 3223069206378701403}
   speed: 60
-  jumpForce: 30
+  jumpForce: 63
   sprintSpeed: 105
   airborneSpeed: 20
   groundDrag: 2
