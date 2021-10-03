@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 
     private bool victory;
     public bool Victory { get => victory; set => victory = value; }
-    private Transform respawnPoint;
+    private Vector3 respawnPoint;
+    [SerializeField] Ball ball;
 
     #region Instances;
 
@@ -78,12 +79,16 @@ public class GameManager : MonoBehaviour
 
     public void Respawn()
     {
-        //récupérer la boule
-        //revenir au dernier endroit passé
-        //
+        ball.transform.position = respawnPoint;
+        
     }
 
-    public void SetRespawnPoint(Transform respawn)
+    public Vector3 GetRespawn()
+    {
+        return respawnPoint;
+    }
+
+    public void SetRespawnPoint(Vector3 respawn)
     {
         respawnPoint = respawn;
     }
