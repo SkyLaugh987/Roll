@@ -8,13 +8,13 @@ public class Ball : MonoBehaviour
     Camera cam;
     [SerializeField]
     Rigidbody rb;
-    [SerializeField,Range(1f,25f)]
+    [SerializeField,Range(20f,75f)]
     float speed = 10;
-    [SerializeField, Range(1f, 25f)]
+    [SerializeField, Range(20f, 75f)]
     float jumpForce = 10;
-    [SerializeField, Range(1f, 25f)]
+    [SerializeField, Range(40f, 120f)]
     float sprintSpeed = 14;
-    [SerializeField, Range(1f, 25f)]
+    [SerializeField, Range(20f, 75f)]
     float airborneSpeed = 4;
 
     [SerializeField]
