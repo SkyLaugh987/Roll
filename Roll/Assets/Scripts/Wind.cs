@@ -17,14 +17,13 @@ public class Wind : MonoBehaviour
 
     private void Start()
     {
-        //ps.transform.localRotation = Quaternion.Euler(windDir);
+        ps.transform.localRotation = Quaternion.Euler(windDir);
     }
 
     private void OnTriggerStay(Collider other)
     {
         Ball ball = other.gameObject.GetComponent<Ball>();
         if (ball != null){
-            ps.transform.localRotation = Quaternion.Euler(windDir);
             ball.gameObject.GetComponent<Rigidbody>().AddForce(windDir * windForce / 5, ForceMode.Acceleration);
         }
     }
