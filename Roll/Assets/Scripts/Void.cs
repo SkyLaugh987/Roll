@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class Void : MonoBehaviour
 {
     [SerializeField]
-    Transform respawn;
-    [SerializeField]
     CameraFade fade;
 
     private void OnTriggerEnter(Collider other)
@@ -15,7 +13,7 @@ public class Void : MonoBehaviour
         Ball ball = other.gameObject.GetComponent<Ball>();
         if(ball != null){
             //timer
-            ball.gameObject.transform.position = respawn.position;//ajouter points de passage
+            GameManager.Instance.Respawn();
             fade.OnGUI();
             fade.RedoFade();
         }
