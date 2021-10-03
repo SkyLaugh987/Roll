@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     private bool victory;
     public bool Victory { get => victory; set => victory = value; }
+    private Transform respawnPoint;
 
     #region Instances;
 
@@ -80,6 +81,11 @@ public class GameManager : MonoBehaviour
         //récupérer la boule
         //revenir au dernier endroit passé
         //
+    }
+
+    public void SetRespawnPoint(Transform respawn)
+    {
+        respawnPoint = respawn;
     }
 
 
