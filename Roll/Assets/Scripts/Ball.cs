@@ -18,6 +18,10 @@ public class Ball : MonoBehaviour
     float airborneSpeed = 4;
 
     [SerializeField]
+    float groundDrag = 2f;
+    [SerializeField]
+    float airDrag = 0.004f;
+    [SerializeField]
     KeyCode jumpKey = KeyCode.Space;
     [SerializeField]
     KeyCode sprintKey = KeyCode.LeftShift;
@@ -30,6 +34,7 @@ public class Ball : MonoBehaviour
         if (!isGrounded())
         {
             rb.AddForce(dir * airborneSpeed,ForceMode.Force);
+            rb.drag = airDrag;
         }
         else if(sprint){
             rb.AddForce(dir * sprintSpeed, ForceMode.Force);
@@ -40,6 +45,8 @@ public class Ball : MonoBehaviour
 
         if (isGrounded())
         {
+            rb.drag = groundDrag;
+
             if (Input.GetKeyDown(jumpKey)){
                 Jump();
             }
@@ -60,7 +67,7 @@ public class Ball : MonoBehaviour
 
     bool isGrounded()
     {
-        return Physics.Raycast(this.gameObject.GetComponent<SphereCollider>().bounds.center, Vector2.down, this.gameObject.GetComponent<SphereCollider>().bounds.extents.y);
+        return Physics.Raycast(this.gameObject.GetComponent<SphereCollider>().bounds.center, Vector2.down, this.gameObject.GetComponent<SphereCollider>().bounds.extents.y+0.04f);
     }
 
     private void OnCollisionEnter(Collision collision)
