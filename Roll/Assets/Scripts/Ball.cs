@@ -27,7 +27,7 @@ public class Ball : MonoBehaviour
     private void Update()
     {
         Vector3 dir = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0) * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (isGrounded())
+        if (!isGrounded())
         {
             rb.AddForce(dir * airborneSpeed,ForceMode.Force);
         }
@@ -38,7 +38,7 @@ public class Ball : MonoBehaviour
             rb.AddForce(dir * speed, ForceMode.Force);
         }
 
-        if (!isGrounded())
+        if (isGrounded())
         {
             if (Input.GetKeyDown(jumpKey)){
                 Jump();

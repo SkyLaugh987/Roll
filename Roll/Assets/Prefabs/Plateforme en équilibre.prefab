@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2268060998749162228}
   - component: {fileID: 2268060998749162231}
   m_Layer: 0
-  m_Name: Cylinder (1)
+  m_Name: Pillier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,8 +59,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2268060998749162230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 4.1039, z: 1}
+  m_LocalPosition: {x: 0.000000022624, y: 0, z: 0}
+  m_LocalScale: {x: 0.6204266, y: 4.1039, z: 1}
   m_Children: []
   m_Father: {fileID: 7762104217888262094}
   m_RootOrder: 0
@@ -122,10 +122,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
+  m_Radius: 0.33011264
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: -0.028653622, y: 0, z: -0.00000011920929}
 --- !u!1 &2268060998856024866
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 2268060998856024864}
   - component: {fileID: 2268060998856024867}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Plateforme
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 2268060998856024866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 4.307, z: 0}
-  m_LocalScale: {x: 15.265429, y: 0.27101, z: 4.449792}
+  m_LocalScale: {x: 20.619015, y: 0.27101, z: 5.8986444}
   m_Children: []
   m_Father: {fileID: 7762104217888262094}
   m_RootOrder: 1
@@ -228,8 +228,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2268060998856024866}
   serializedVersion: 2
-  m_Mass: 50
-  m_Drag: 0.5
+  m_Mass: 10
+  m_Drag: 0.1
   m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
