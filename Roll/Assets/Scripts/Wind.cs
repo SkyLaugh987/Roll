@@ -24,7 +24,7 @@ public class Wind : MonoBehaviour
     {
         Ball ball = other.gameObject.GetComponent<Ball>();
         if (ball != null){
-            ball.gameObject.GetComponent<Rigidbody>().AddForce(windDir * windForce / 5, ForceMode.Acceleration);
+            ball.gameObject.GetComponent<Rigidbody>().AddForce(windDir * windForce, ForceMode.Acceleration);
         }
     }
 }
