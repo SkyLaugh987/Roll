@@ -5,8 +5,8 @@ using UnityEngine;
 public class Fallingplatform : MonoBehaviour
 {
 
-    float timer = 2f;
-    float timerReset = 2f;
+    float timer = 1.5f;
+    float timerReset = 1.5f;
     float timerPos = 1.5f;
     float timerPosReset;
     bool startTimer = false;
@@ -31,7 +31,7 @@ public class Fallingplatform : MonoBehaviour
             //Debug.Log(startTimer);
 
             timer -= Time.deltaTime;
-            Debug.Log("timer: " + timer);
+            //Debug.Log("timer: " + timer);
             if (timer <= 0)
             {
                 ActivateGravity();
@@ -60,7 +60,7 @@ public class Fallingplatform : MonoBehaviour
         Ball ball = other.gameObject.GetComponent<Ball>();
         if (ball != null)
         {
-            Debug.Log("collides");
+            //Debug.Log("collides");
             startTimer = true;
         }
 
