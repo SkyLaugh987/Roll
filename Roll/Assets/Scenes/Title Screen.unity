@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 342748216}
   - component: {fileID: 342748215}
   m_Layer: 5
-  m_Name: Base
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2354,7 +2354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Base
+  m_text: Rock
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4096,7 +4096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1918435945
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4153,12 +4153,12 @@ MonoBehaviour:
   Credits: {fileID: 1422118095}
   Skins: {fileID: 788605647}
   Quit: {fileID: 1683061301}
-  Base: {fileID: 342748215}
+  Rock: {fileID: 342748215}
   Melon: {fileID: 1220991983}
   Bill: {fileID: 2012747676}
-  baseMat: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  rockMat: {fileID: 0}
   melonMat: {fileID: 2100000, guid: 5b15fd2eca98a074da02c15e304c7907, type: 2}
-  billMat: {fileID: 2100000, guid: b7a8e77f412856b4694243301ed8edcd, type: 2}
+  billMat: {fileID: 2100000, guid: 5d9f2c3a14a89aa4f8ca017e4b53df65, type: 2}
   CreditsScreen: {fileID: 904271923}
   SkinsScreen: {fileID: 1855694629}
 --- !u!4 &1966909140
