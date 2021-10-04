@@ -5,9 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    [SerializeField]
+    CameraFade fade;
+
     private bool victory;
     public bool Victory { get => victory; set => victory = value; }
     private Vector3 respawnPoint;
+    private bool respawned = false;
     [SerializeField] Ball ball;
 
     #region Instances;
@@ -79,7 +83,12 @@ public class GameManager : MonoBehaviour
 
     public void Respawn()
     {
+
+        fade.OnGUI();
+        fade.RedoFade();
         ball.transform.position = respawnPoint;
+        ball.Rb.velocity = Vector3.zero;
+        respawned = true;
         
     }
 
@@ -88,10 +97,26 @@ public class GameManager : MonoBehaviour
         return respawnPoint;
     }
 
+
     public void SetRespawnPoint(Vector3 respawn)
     {
         respawnPoint = respawn;
     }
 
+    public void SetVictory()
+    {
+
+        currentGameState = GameStates.Win;
+    }
+
+    public bool GetRespawnBool()
+    {
+        return respawned;
+    }
+
+    public void SetRespawnBool(bool res)
+    {
+        this.respawned = res;
+    }
 
 }

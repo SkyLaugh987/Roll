@@ -8,6 +8,9 @@ public class Ball : MonoBehaviour
     Camera cam;
     [SerializeField]
     Rigidbody rb;
+    public Rigidbody Rb { get => rb; set => rb = value; }
+
+
     [SerializeField, Range(1f, 75f)]
     float speed = 10;
     [SerializeField, Range(1f, 120f)]
@@ -31,6 +34,7 @@ public class Ball : MonoBehaviour
 
     bool sprint = false;
 
+
     private void Start()
     {
         this.gameObject.GetComponent<Renderer>().material = MenuManager.Instance.chooseSkin();
@@ -39,22 +43,22 @@ public class Ball : MonoBehaviour
     {
         if (!isGrounded())
         {
-            rb.AddForce(dir * airborneSpeed, ForceMode.Force);
-            rb.AddForce(transform.up + Physics.gravity * 10f);
-            rb.drag = airDrag;
+            Rb.AddForce(dir * airborneSpeed, ForceMode.Force);
+            Rb.AddForce(transform.up + Physics.gravity * 10f);
+            Rb.drag = airDrag;
         }
         else if (sprint)
         {
-            rb.AddForce(dir * sprintSpeed, ForceMode.Force);
+            Rb.AddForce(dir * sprintSpeed, ForceMode.Force);
         }
         else
         {
-            rb.AddForce(dir * speed, ForceMode.Force);
+            Rb.AddForce(dir * speed, ForceMode.Force);
         }
 
         if (isGrounded())
         {
-            rb.drag = groundDrag;
+            Rb.drag = groundDrag;
             Jump();
 
         }
@@ -95,7 +99,7 @@ public class Ball : MonoBehaviour
     {
         if (jump)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            Rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             sprint = false;
             jump = false;
         }

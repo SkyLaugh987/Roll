@@ -9,12 +9,16 @@ public class Fallingplatform : MonoBehaviour
     float timerReset = 2f;
     bool startTimer = false;
     Rigidbody platRB;
+    Vector3 transformOriginPosition;
+    Quaternion transformOriginRotation;
     // Start is called before the first frame update
     void Start()
     {
         platRB = GetComponent<Rigidbody>();
         //Debug.Log(startTimer);
 
+        transformOriginPosition = this.transform.position;
+        transformOriginRotation = this.transform.rotation;
     }
 
     // Update is called once per frame
@@ -33,13 +37,26 @@ public class Fallingplatform : MonoBehaviour
                 startTimer = false;
             }
         }
+
+        if (GameManager.Instance.GetRespawnBool())
+        {
+            this.transform.position = transformOriginPosition;
+            this.transform.rotation = transformOriginRotation;
+            if (platRB.isKinematic == false)
+                platRB.isKinematic = true;
+
+        }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("collides");
-        startTimer = true;
-        
+        Ball ball = other.gameObject.GetComponent<Ball>();
+        if (ball != null)
+        {
+            Debug.Log("collides");
+            startTimer = true;
+        }
+
     }
     private void ActivateGravity()
     {
