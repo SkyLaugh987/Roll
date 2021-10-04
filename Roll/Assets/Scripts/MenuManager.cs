@@ -35,6 +35,7 @@ public class MenuManager : MonoBehaviour
 
     bool credits = false;
     bool skins = false;
+    bool isPlaying = false;
 
     private void Awake()
     {
@@ -62,7 +63,15 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        if ((credits || skins) && Input.GetKeyDown("escape"))
+        if (!isPlaying && Input.GetKeyDown("escape"))
+        {
+            close();
+        }
+    }
+
+    void close()
+    {
+        if ((credits || skins))
         {
             Play.gameObject.SetActive(true);
             Credits.gameObject.SetActive(true);
@@ -79,6 +88,7 @@ public class MenuManager : MonoBehaviour
     void PlayClick()
     {
         SceneManager.LoadScene("SampleScene");
+        isPlaying = true;
     }
 
     void CreditsClick()
@@ -112,30 +122,29 @@ public class MenuManager : MonoBehaviour
     {
         melon = false;
         bill = false;
-
+        close();
     }
     void MelonClick()
     {
         melon = true;
         bill = false;
+        close();
     }
     void BillClick()
     {
         bill = true;
         melon = false;
+        close();
     }
 
     public Material chooseSkin()
     {
         if (bill){
-            Debug.Log("bill");
             return billMat;
         }
         if (melon){
-            Debug.Log("melon");
             return melonMat;
         }
-        Debug.Log("r");
         return baseMat;
 
     }
