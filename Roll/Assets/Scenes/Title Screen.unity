@@ -4156,7 +4156,7 @@ MonoBehaviour:
   Rock: {fileID: 342748215}
   Melon: {fileID: 1220991983}
   Bill: {fileID: 2012747676}
-  rockMat: {fileID: 2100000, guid: c3aece424e42ed7408ebec0929d0583e, type: 2}
+  rockMat: {fileID: 2100000, guid: f90278060be3b6b458a2ff6c3ae7e757, type: 2}
   melonMat: {fileID: 2100000, guid: 5b15fd2eca98a074da02c15e304c7907, type: 2}
   billMat: {fileID: 2100000, guid: 5d9f2c3a14a89aa4f8ca017e4b53df65, type: 2}
   CreditsScreen: {fileID: 904271923}
