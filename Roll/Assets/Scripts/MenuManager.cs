@@ -69,6 +69,7 @@ public class MenuManager : MonoBehaviour
             Quit.gameObject.SetActive(true);
             CreditsScreen.gameObject.SetActive(false);
             SkinsScreen.gameObject.SetActive(false);
+            Skins.gameObject.SetActive(true);
 
             credits = false;
             //enlever les crédits
@@ -86,6 +87,7 @@ public class MenuManager : MonoBehaviour
         Credits.gameObject.SetActive(false);
         Quit.gameObject.SetActive(false);
         CreditsScreen.gameObject.SetActive(true);
+        Skins.gameObject.SetActive(false);
 
         credits = true;
         //afficher crédits
@@ -98,7 +100,8 @@ public class MenuManager : MonoBehaviour
         Credits.gameObject.SetActive(false);
         Quit.gameObject.SetActive(false);
         SkinsScreen.gameObject.SetActive(true);
-        
+        Skins.gameObject.SetActive(false);
+
 
         skins = true;
         //afficher skins
