@@ -69,6 +69,7 @@ public class Ball : MonoBehaviour
     private void Update()
     {
         ReadingInput();
+        Debug.Log(GameManager.Instance.GameState);
     }
 
     private void ReadingInput()

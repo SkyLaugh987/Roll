@@ -6,6 +6,9 @@ public class VictoryScript : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        GameManager.Instance.SetVictory();
+        if (other.tag.Equals("Player"))
+        {
+            GameManager.Instance.SetVictory();
+        }
     }
 }

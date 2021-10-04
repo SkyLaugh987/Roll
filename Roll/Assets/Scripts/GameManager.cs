@@ -61,20 +61,13 @@ public class GameManager : MonoBehaviour
 
                 case GameStates.InGame:
                     Time.timeScale = 1;
-
-                    break;
-
-                case GameStates.Pause:
-                    Time.timeScale = 0;
-                    break;
-
-                case GameStates.GameOver:
-                    //Affiche un GameOver quoi
-                    Time.timeScale = 0;
+                    UIManager.Instance.Hide();
                     break;
 
                 case GameStates.Win:
-                    Time.timeScale = 1;
+                    Time.timeScale = 0;
+                    UIManager.Instance.DisplayVictory();
+
                     break;
             }
         }
@@ -109,7 +102,8 @@ public class GameManager : MonoBehaviour
     public void SetVictory()
     {
 
-        currentGameState = GameStates.Win;
+        GameState = GameStates.Win;
+        Debug.Log("coucou");
     }
 
     public bool GetRespawnBool()
