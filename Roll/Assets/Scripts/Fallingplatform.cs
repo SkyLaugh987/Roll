@@ -9,16 +9,13 @@ public class Fallingplatform : MonoBehaviour
     float timerReset = 2f;
     bool startTimer = false;
     Rigidbody platRB;
-    Vector3 transformOriginPosition;
-    Quaternion transformOriginRotation;
-    // Start is called before the first frame update
+
+    private Vector3 transformOriginPosition;
     void Start()
     {
         platRB = GetComponent<Rigidbody>();
         //Debug.Log(startTimer);
-
         transformOriginPosition = transform.position;
-        transformOriginRotation = transform.rotation;
     }
 
     // Update is called once per frame
@@ -41,10 +38,14 @@ public class Fallingplatform : MonoBehaviour
         if (GameManager.Instance.GetRespawnBool())
         {
             transform.position = transformOriginPosition;
-            transform.rotation = transformOriginRotation;
+
             if (platRB.isKinematic == false)
                 platRB.isKinematic = true;
-            GameManager.Instance.SetRespawnBool(false);
+
+            if (this.transform.position == transformOriginPosition)
+            {
+                GameManager.Instance.SetRespawnBool(false);
+            }
         }
     }
 

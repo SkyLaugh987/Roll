@@ -81,6 +81,9 @@ public class GameManager : MonoBehaviour
     }
     #endregion;
 
+
+    public List<Transform> platformOriginPos;
+
     public void Respawn()
     {
 
