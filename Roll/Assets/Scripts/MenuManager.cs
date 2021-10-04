@@ -25,7 +25,6 @@ public class MenuManager : MonoBehaviour
     Button Base = null, Melon = null, Bill = null;
     [SerializeField]
     Material baseMat = null, melonMat = null, billMat = null;
-    bool melon = false, bill = false;
     [SerializeField]
     GameObject CreditsScreen = null;
     [SerializeField]
@@ -49,6 +48,15 @@ public class MenuManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public enum Skin
+    {
+        Base,
+        Melon,
+        Bill
+    }
+    private Skin currentSkin;
+
     void Start()
     {
         Play.onClick.AddListener(PlayClick);
@@ -120,29 +128,27 @@ public class MenuManager : MonoBehaviour
 
     void BaseClick()
     {
-        melon = false;
-        bill = false;
+        currentSkin = Skin.Base;
         close();
     }
     void MelonClick()
     {
-        melon = true;
-        bill = false;
+        currentSkin = Skin.Melon;
         close();
     }
     void BillClick()
     {
-        bill = true;
-        melon = false;
+        currentSkin = Skin.Bill;
         close();
     }
 
     public Material chooseSkin()
     {
-        if (bill){
+        if (currentSkin == Skin.Bill){
             return billMat;
         }
-        if (melon){
+        if (currentSkin == Skin.Melon)
+        {
             return melonMat;
         }
         return baseMat;
