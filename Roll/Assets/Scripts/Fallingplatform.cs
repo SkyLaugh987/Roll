@@ -7,15 +7,20 @@ public class Fallingplatform : MonoBehaviour
 
     float timer = 2f;
     float timerReset = 2f;
+    float timerPos = 1.5f;
+    float timerPosReset;
     bool startTimer = false;
     Rigidbody platRB;
 
     private Vector3 transformOriginPosition;
+    private Quaternion transformOriginRotation;
     void Start()
     {
         platRB = GetComponent<Rigidbody>();
         //Debug.Log(startTimer);
         transformOriginPosition = transform.position;
+        transformOriginRotation = transform.rotation;
+        timerPosReset = timerPos;
     }
 
     // Update is called once per frame
@@ -37,16 +42,17 @@ public class Fallingplatform : MonoBehaviour
 
         if (GameManager.Instance.GetRespawnBool())
         {
-            transform.position = transformOriginPosition;
-
-            if (platRB.isKinematic == false)
-                platRB.isKinematic = true;
-
-            if (this.transform.position == transformOriginPosition)
+            ResetPos();
+            timerPos -= Time.deltaTime;
+            if(timerPos <= 0)
             {
                 GameManager.Instance.SetRespawnBool(false);
+                timerPos = timerPosReset;
+
             }
         }
+
+
     }
 
     private void OnCollisionEnter(Collision other)
@@ -63,5 +69,15 @@ public class Fallingplatform : MonoBehaviour
     {
         if (platRB.isKinematic == true)
             platRB.isKinematic = false;
+    }
+
+    public void ResetPos()
+    {
+        transform.position = transformOriginPosition;
+        transform.rotation = transformOriginRotation;
+
+        if (platRB.isKinematic == false)
+            platRB.isKinematic = true;
+
     }
 }
