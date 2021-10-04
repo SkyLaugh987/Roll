@@ -3882,7 +3882,7 @@ MonoBehaviour:
   Melon: {fileID: 1220991983}
   Bill: {fileID: 2012747676}
   baseMat: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
-  melonMat: {fileID: 0}
+  melonMat: {fileID: 2100000, guid: 5b15fd2eca98a074da02c15e304c7907, type: 2}
   billMat: {fileID: 2100000, guid: b7a8e77f412856b4694243301ed8edcd, type: 2}
   CreditsScreen: {fileID: 904271923}
   SkinsScreen: {fileID: 1855694629}
