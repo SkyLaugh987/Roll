@@ -5,8 +5,8 @@ using UnityEngine;
 public class Fallingplatform : MonoBehaviour
 {
 
-    float timer = 3f;
-    float timerReset = 3f;
+    float timer = 2f;
+    float timerReset = 2f;
     bool startTimer = false;
     Rigidbody platRB;
     // Start is called before the first frame update
