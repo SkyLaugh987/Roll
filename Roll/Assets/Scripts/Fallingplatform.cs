@@ -17,8 +17,8 @@ public class Fallingplatform : MonoBehaviour
         platRB = GetComponent<Rigidbody>();
         //Debug.Log(startTimer);
 
-        transformOriginPosition = this.transform.position;
-        transformOriginRotation = this.transform.rotation;
+        transformOriginPosition = transform.position;
+        transformOriginRotation = transform.rotation;
     }
 
     // Update is called once per frame
@@ -40,11 +40,11 @@ public class Fallingplatform : MonoBehaviour
 
         if (GameManager.Instance.GetRespawnBool())
         {
-            this.transform.position = transformOriginPosition;
-            this.transform.rotation = transformOriginRotation;
+            transform.position = transformOriginPosition;
+            transform.rotation = transformOriginRotation;
             if (platRB.isKinematic == false)
                 platRB.isKinematic = true;
-
+            GameManager.Instance.SetRespawnBool(false);
         }
     }
 
