@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8088740224451260357}
   - component: {fileID: 8799815936102789244}
   - component: {fileID: 4891719606004626399}
+  - component: {fileID: 432310607192283777}
   m_Layer: 0
   m_Name: Roll_002_PillierStable01
   m_TagString: Untagged
@@ -111,3 +112,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: a021009ddc0178b468b7ac3d55d4f870, type: 3}
+--- !u!114 &432310607192283777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728183630525828624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d785653fcf593498aeccc41fdde5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

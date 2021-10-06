@@ -80,10 +80,10 @@ public class GameManager : MonoBehaviour
     public void Respawn()
     {
 
+        ball.Rb.velocity = Vector3.zero;
+        ball.transform.position = respawnPoint;
         fade.OnGUI();
         fade.RedoFade();
-        ball.transform.position = respawnPoint;
-        ball.Rb.velocity = Vector3.zero;
         respawned = true;
         
     }
